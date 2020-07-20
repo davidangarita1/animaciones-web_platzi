@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transformación traslate</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+            perspective: 200px;
+            perspective-origin: center;
+            /* perspective-origin: bottom right; */
+        }
+
+        .container {
+            border: 1px solid red;
+        }
+
+        .container:hover .cuadrado {
+            /* transform: translate(x); */
+            transform: translate(-100px);
+            /* transform: translate(x, y); */
+            /* transform: translate(-100px, -100px); */
+            /* transform: translate3d(x, y, z); */
+            transform: translate3d(100px, 100px, 100px);
+        }
+
+        .cuadrado {
+            width: 200px;
+            height: 200px;
+            background: #7dc900;
+            margin: 20px;
+            transition: .3s;  
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="cuadrado">
+            Hola Mundo
+        </div>
+    </div>
+</body>
+</html>

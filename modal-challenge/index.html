@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Animacion de entrada y salida</title>
+    <style>
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+            flex-direction: column;
+        }
+        .overlay {
+            background: rgba(0,0,0,.5);
+            position: fixed;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden; /* visible; */ 
+            /* transition: 1.1s ease-in; */
+        }
+        .overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        .modal {
+            /* width: 200px; */
+            /* height: 200px; */
+            width: 500px;
+            background: white;
+            /* animation:  name time estado; */
+            /* animation:  modalIn .8s; */
+            /* animation:  modalOut .8s forwards; */
+            padding: 1.5em;
+            border-radius: .5em;
+            text-align: center;
+        }
+        .modal-header{
+            display: flex;
+        }
+        .modal-title {
+            flex-grow: 1;
+        }
+        .modal-title h2 {
+            margin: 10px;
+        }
+        .btn {
+            text-align: center;
+            background: lightgray;
+            padding: .6em .8em .8em;
+            border: none;
+            color: white;
+            margin: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: inset 0 -.2em rgba(0,0,0, .2);
+            outline: 0;
+            transition: .2s;
+            will-change: transform;
+        }
+        .btn:active {
+            transform: scale(.9)
+        }
+        .btn.primary {
+            background: #7dc800;
+        }
+        .btn.warning {
+            background: #ff463b;
+        }
+        @keyframes modalIn {
+            0% {
+                transform: translateY(-3000px);
+            }
+            60% {
+                transform: translateY(25px);
+            }
+            75% {
+                transform: translateY(-10px);
+            }
+            90% {
+                transform: translateY(5px);
+            }
+        }
+        @keyframes modalOut {
+            0% {
+                transform: translateY(5px);
+            }
+            60% {
+                transform: translateY(-10px);
+            }
+            75% {
+                transform: translateY(25px);
+            }
+            100% {
+                transform: translateY(-3000px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <img src="platzisite.png" id="imgClicable" alt="">
+    <div class="overlay" id="overlay">
+        <div class="modal" id="modal">
+            <div class="modal-header">
+                <div class="modal-title">
+                    <h2>Atención</h2>
+                </div>
+                <div>
+                    <button class="btn" id="close-modal">x</button>
+                </div>
+            </div>
+            <p>Estas a punto de crear una ventana de modal muy cool</p>
+            <p>¿te gusto?</p>
+            <div class="modal-buttons">
+                <button class="btn primary" id="ok-modal">Si, me encanta</button>
+                <button class="btn warning" id="cancel-modal">No, :(</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const $okButton = document.getElementById('ok-modal');
+        const $cancelButton = document.getElementById('cancel-modal');
+        const $closeButton = document.getElementById('close-modal');
+        const $modal = document.getElementById('modal');
+        const $overlay = document.getElementById('overlay');
+        const $imgClicable = document.getElementById('imgClicable');
+
+        $imgClicable.addEventListener('click', (event) => {
+            // console.log(event);
+            modalGoIn();
+        });
+
+        $okButton.addEventListener('click', (event) => {
+            // console.log(event);
+            modalGoOut();
+        });
+
+        $cancelButton.addEventListener('click', (event) => {
+            // console.log(event);
+            modalGoOut();
+        });
+
+        $closeButton.addEventListener('click', (event) => {
+            // console.log(event);
+            modalGoOut();
+        });
+
+        $overlay.addEventListener('click', (event) => {
+            // console.log(event);
+            
+            if(event.target === $overlay) {
+                modalGoOut();
+            }
+        });
+
+        function modalGoOut()
+        {
+            $overlay.style.transition = '1.1s ease-in';
+            $modal.style.animation = 'modalOut .8s forwards';
+            $overlay.classList.remove('active');
+        }
+
+        function modalGoIn()
+        {
+            $overlay.style.transition = '.3s ease-out';
+            $modal.style.animation = 'modalIn .8s';
+            $overlay.classList.add('active');
+        }
+    </script>
+</body>
+</html>

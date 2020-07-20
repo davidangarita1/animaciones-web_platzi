@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grid Slider</title>
+</head>
+
+<body>
+    <div class="text-right ct-box-slider__arrows clearfix">
+        <button id="ct-js-box-slider--next" type="button" class="pull-right slick-arrow"><img alt="Arrow Next"
+                src="https://www.solodev.com/assets/action-grid-slider/arrow-next.jpg"></button>
+        <button id="ct-js-box-slider--prev" type="button" class="pull-right slick-arrow"><img alt="Arrow Prev"
+                src="https://www.solodev.com/assets/action-grid-slider/arrow-prev.jpg"></button>
+    </div>
+
+    <div class="ct-box-slider ct-js-box-slider">
+
+        <div class="item">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6">
+                        <div onclick="location.href='#'" class="ct-box">
+                            <div class="inner" role="presentation"><i class="fa fa-calendar"></i><span>View Upcoming
+                                    Events</span></div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6">
+                        <div onclick="location.href='#'" class="ct-box">
+                            <div class="inner" role="presentation"><i class="fa fa-users"></i><span>Connect with
+                                    Others</span></div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6">
+                        <div onclick="location.href='#'" class="ct-box">
+                            <div class="inner" role="presentation"><i class="fa fa-ticket"></i><span>Purchase
+                                    Tickets</span></div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6">
+                        <div onclick="location.href='#'" class="ct-box">
+                            <div class="inner" role="presentation"><i class="fa fa-plane"></i><span>Book a Flight</span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+
+        <div class="item">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-xs-6 col-sm-6">
+                        <div onclick="location.href='#'" class="ct-box">
+                            <div class="inner" role="presentation"><i class="fa fa-graduation-cap"></i><span>Find
+                                    Tutorials</span></div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6">
+                        <div onclick="location.href='#'" class="ct-box">
+                            <div class="inner" role="presentation"><i class="fa fa-free-code-camp"></i><span>Enroll in
+                                    Code Camp</span></div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6">
+                        <div onclick="location.href='#'" class="ct-box">
+                            <div class="inner" role="presentation"><i class="fa fa-file-code-o"></i><span>Source Code
+                                    Descriptions</span></div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-sm-6">
+                        <div onclick="location.href='#'" class="ct-box">
+                            <div class="inner" role="presentation"><i class="fa fa-bar-chart"></i><span>Learn About
+                                    Analytics</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" rel="stylesheet">
+    <link href="action-grid-slider.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.js"></script>
+    <script src="action-grid-slider.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('.ct-box-slider').slick({
+                autoplay: true,
+                autoplaySpeed: 4000,
+                arrows: false,
+            });
+            $('#ct-js-box-slider--prev').on('click', function () {
+                $('.ct-js-box-slider').slick('slickPrev');
+            });
+            $('#ct-js-box-slider--next').on('click', function () {
+                $('.ct-js-box-slider').slick('slickNext');
+            });
+        });
+    </script>
+</body>
+
+</html>
